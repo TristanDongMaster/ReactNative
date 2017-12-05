@@ -9,12 +9,12 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  BackHandler
 } from 'react-native';
 import { Provider } from 'react-redux'
 import store from './store'
 import AppNavigation from './src/Navigation'
-
 
 export default class App extends Component {
   render() {
