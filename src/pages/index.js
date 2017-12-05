@@ -89,6 +89,10 @@ export default class HomeScreen extends React.Component {
             onPress={() => navigate('Modal',{ from: 'home' })}
             title="Modal"
           />
+          <Button
+            onPress={() => navigate('Dialog',{ from: 'home' })}
+            title="Dialog"
+          />
 	        <Button
 	          onPress={() => navigate('Chat',{ from: 'home' })}
 	          title="Chat with Lucy"
