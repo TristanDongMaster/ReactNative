@@ -13,11 +13,17 @@ import {
   Linking,
 } from 'react-native';
 import Header from '../component/Header.js'
+import Modal from 'react-native-modal'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',
   };
+  state = {
+    isModalVisible: false
+  }
+  _showModal = () => this.setState({ isModalVisible: true })
+  _hideModal = () => this.setState({ isModalVisible: false })
   constructor(props) {
     super(props);
     this._onRefresh = this._onRefresh.bind(this)
@@ -55,6 +61,7 @@ export default class HomeScreen extends React.Component {
     // });
   }
   onButtonPress(){
+    //this._showModal()
     Alert.alert('Button has been pressed!');
   }
   render() {
@@ -78,6 +85,10 @@ export default class HomeScreen extends React.Component {
             <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
             style={{flex:1, height: 50}} />
           </View>
+          <Button
+            onPress={() => navigate('Modal',{ from: 'home' })}
+            title="Modal"
+          />
 	        <Button
 	          onPress={() => navigate('Chat',{ from: 'home' })}
 	          title="Chat with Lucy"
@@ -147,6 +158,14 @@ export default class HomeScreen extends React.Component {
           Lions head coach Warren Gatland, who saw his side win 24-21 win in Wellington last week to level the series, said: "It is not very often on a Lions tour that you get to pick the same 23 for the following game.
           </Text>
         </ScrollView>
+        <Modal 
+          isVisible={this.state.isModalVisible}
+          animationIn={'slideInLeft'}
+          animationOut={'slideOutRight'}>
+          <View style={{ flex: 1 }}>
+            <Text>Hello!</Text>
+          </View>
+        </Modal>
       </View>
     );
   }
