@@ -34,10 +34,27 @@ export default class WebViewExample extends Component {
           }}
         />
       ),
+      headerLeft:  (
+        <Text
+          style={{
+          display:'flex',
+          alignItems:'center',
+          justifyContent:'center',
+          fontSize:20,
+          color:'black',
+          backgroundColor:'white',
+          width:50,}}
+          onPress={() => {
+            navigation.state.params.backHandler('headerLeft',navigation)
+          }} >
+          {" < "}
+        </Text>
+      ),
     };
   };
   constructor(props) {  
     super(props);  
+    this.backHandler =  this.backHandler.bind(this)
     this.switchView = this.switchView.bind(this)
     this.state = {
       time:0
@@ -48,6 +65,7 @@ export default class WebViewExample extends Component {
     this.props.navigation.setParams({
       user: 0,
       switchView:this.switchView,
+      backHandler: this.backHandler,
     })
   }  
   switchView() {  
@@ -88,10 +106,13 @@ export default class WebViewExample extends Component {
     BackHandler.removeEventListener('hardwareBackPress', this.backHandler);
   }
   
-  backHandler = () => {
+  backHandler = (headerLeft,navigation) => {
     if(this.state.backButtonEnabled) {
         this.refs[WEBVIEW_REF].goBack();
         return true;
+    }
+    if(headerLeft == 'headerLeft'){
+      navigation.goBack()
     }
   }
 }  

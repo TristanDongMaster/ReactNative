@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import Header from '../component/Header.js'
 import Modal from 'react-native-modal'
-
+import FadeInView from '../component/FadeInView.js'
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',
@@ -118,6 +118,10 @@ export default class HomeScreen extends React.Component {
           			)
           	})
           }
+
+          <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
+            <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+          </FadeInView>
           
           <Button
             onPress={this.onButtonPress}
