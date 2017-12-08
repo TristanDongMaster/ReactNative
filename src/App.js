@@ -10,6 +10,8 @@ import TestScreen from './pages/TestScreen.js'
 import WebViewExample from './pages/WebView.js'
 import Modal from './pages/modal.js'
 import PopupDialogExample from './pages/PopupDialogExample.js'
+import ModalExample from './pages/modalDefault.js'
+
 
 const ReactNative5 = StackNavigator({
   Home: { screen: HomeScreen },
@@ -18,6 +20,7 @@ const ReactNative5 = StackNavigator({
   WebView: { screen: WebViewExample },
   Modal: { screen: Modal },
   Dialog: { screen: PopupDialogExample },
+  ModalExample: { screen: ModalExample },
 });
 
 AppRegistry.registerComponent('ReactNative5', () => ReactNative5);

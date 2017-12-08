@@ -90,6 +90,10 @@ export default class HomeScreen extends React.Component {
             title="Modal"
           />
           <Button
+            onPress={() => navigate('ModalExample',{ from: 'home' })}
+            title="ModalExample"
+          />
+          <Button
             onPress={() => navigate('Dialog',{ from: 'home' })}
             title="Dialog"
           />
